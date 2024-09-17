@@ -6,12 +6,12 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 20:16:12 by aoussama          #+#    #+#             */
-/*   Updated: 2024/09/17 09:23:31 by aoussama         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:49:47 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-//#include <stdio.h>
+
 int	str_len(char *str)
 {
 	int	i;
@@ -24,7 +24,7 @@ int	str_len(char *str)
 	return (i);
 }
 
-void	str_cpy(char *test, char **s, char *l, int size)
+void	str_cpy(char *test, char **s, char *sep, int size)
 {
 	int	i;
 	int	k;
@@ -41,8 +41,8 @@ void	str_cpy(char *test, char **s, char *l, int size)
 		j = 0;
 		if (i < (size -1))
 		{
-			while (l[j])
-				test[k++] = l[j++];
+			while (sep[j])
+				test[k++] = sep[j++];
 		}
 		i++;
 	}
@@ -52,12 +52,12 @@ void	str_cpy(char *test, char **s, char *l, int size)
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		i;
-	int		j;
 	int		countstr;
 	int		countsep;
 	char	*test;
 
 	i = 0;
+	countstr = 0;
 	countsep = str_len(sep);
 	while (i < size)
 	{
@@ -71,7 +71,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 }
 /*int main()
 {
-	char *s[] = {"hhh","jkh", "hsd", "ufiy", "iugiug"};
+	char *s[] = {"hhh"};
 	char *l = "---";
-	printf("%s",ft_strjoin(5, s, l));
+	printf("%s",ft_strjoin(1, s, l));
 }*/

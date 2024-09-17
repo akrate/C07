@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 13:16:15 by aoussama          #+#    #+#             */
-/*   Updated: 2024/09/17 09:40:08 by aoussama         ###   ########.fr       */
+/*   Updated: 2024/09/17 10:11:41 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ int	*ft_range(int min, int max)
 	int	*count;
 	int	i;
 
+	if (min >= max)
+		return (NULL);
+	count = (int *)malloc(sizeof(int) * (max - min));
+	if (count == NULL)
+		return (NULL);
 	i = 0;
-	if (min > max)
-		return (NULL);
-	count = (int *)malloc(sizeof(int) * max - min);
-	if (!count)
-		return (NULL);
-	while (i < max - min)
+	while (max > min)
 	{
-		count[i] = min + i;
-		i++;
+		count[i++] = min;
+		min++;
 	}
 	return (count);
 }
